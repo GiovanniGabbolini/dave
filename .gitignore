@@ -1,0 +1,7 @@
+.vscode/
+flask_session/
+res/
+python.log
+*.pyc
+*.png
+.ipynb_checkpoints/

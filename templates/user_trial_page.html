@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}User trial{% endblock %}
+
+{% block imports %}
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block script %}
+<script>
+    function spotify_green(text) {
+        return "<i style='color: #1DB954;'>" + text + "</i>"
+    }
+    var set_submit_button_state = function () {
+        var check = true;
+        $("input:radio").each(function () {
+            var name = $(this).attr("name");
+            if ($("input:radio[name=" + name + "]:checked").length == 0) {
+                check = false;
+            }
+        });
+        if (check) {
+            $("#submit").prop('disabled', false).css('opacity', 1);
+        } else {
+            // $("#submit").prop('disabled', false).css('opacity', 1);
+            $("#submit").prop('disabled', true).css('opacity', 0.5);
+        }
+    };
+    set_submit_button_state()
+    $(document).ready(function () {
+        set_submit_button_state()
+    });
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div class="row text-center pt-2 pb-2" style="background-color: #F5F5F5">
+    <div class="col-3">
+        {% if allow_back %}
+        <button type="button" class="btn btn-secondary btn" id="go_back"
+            onclick="location.href='/user_trial_decrement_page';">Back</button>
+        {% endif %}
+    </div>
+    <div class="col-6">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="col-3">
+        {% if insight_logo %}
+        <div class="text-center">
+            <img src="{{url_for('static', filename='insight-logo.png')}}" style="max-width: 35mm; width: 100%;">
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% block questions %}{% endblock %}
+
+
+<div class="row text-center pt-2 pb-2" style="background-color: #F5F5F5"">
+    <button type=" button" class="class=btn btn-primary btn btn-block mt-2 mb-2" id="submit"
+    onclick="location.href='/user_trial_increment_page';" disabled>
+    {{button_text}}
+    </button>
+</div>
+{% endblock %}

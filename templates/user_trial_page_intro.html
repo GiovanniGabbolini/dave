@@ -1,0 +1,75 @@
+{% extends "user_trial_page.html" %}
+
+{% block questions %}
+
+<div class="col text-center ml-2 mr-2 mt-2">
+
+    <p>
+        Hello! I'm Giovanni, a PhD student at the Insight Centre for Data Analytics at UCC.
+    </p>
+
+    <p>
+
+        My research focuses on music, and in particular on studying connections between songs.
+
+    </p>
+    <p>
+
+        I refer to such connections as
+        <script>document.write(spotify_green('segues'))</script>.
+
+    </p>
+
+
+    <img src="{{url_for('static', filename='1sea.png')}}" class="mt-1 mb-1" alt="Example 1"
+        style="max-width: 1000px; width: 100%;">
+    <div class="text-center">
+
+        Figure 1: This
+        <script>document.write(spotify_green('segue'))</script> connects the two tracks by the
+        word
+        <b>dance</b>, contained in the titles of both Tracks.
+
+    </div>
+
+    <img src="{{url_for('static', filename='2sea.png')}}" class="mt-5 mb-1" alt="Example 2"
+        style="max-width: 1000px; width: 100%;">
+    <i>
+
+        <figcaption>Figure 2: This
+            <script>document.write(spotify_green('segue'))</script> highlights that the First Track's producer coincides
+            with the Second Track's artist.
+        </figcaption>
+
+    </i>
+
+    <hr />
+
+    <p class="mt-2">
+
+        I will ask you to complete a survey. You will have to evaluate six different
+        <script>document.write(spotify_green('segues'))</script>.
+
+    </p>
+
+    <p>
+
+        You don't need to know the songs to complete the survey. We are asking about segues, not about songs.
+
+    </p>
+
+    <p>
+
+        The survey is completely anonymous, and will take approximately 10 minutes of your time.
+
+    </p>
+
+    <p class="mt-2">
+
+        Would you help me out? :)
+
+    </p>
+
+
+</div>
+{% endblock %}

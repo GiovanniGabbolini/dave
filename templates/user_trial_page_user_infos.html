@@ -1,0 +1,30 @@
+{% extends "user_trial_page.html" %}
+
+{% block questions %}
+
+{{render_template('likert_scale_7.html', 
+    questions=["I spend a lot of my disposable income on music.",
+    "I enjoy writing about music, for example on blogs and forums.",
+    "I keep track of new of music that I come across (e.g. new artists or recordings).",
+    "I often read or search the internet for things related to music.",
+    "I spend a lot of my free time doing music-related activities.",
+    "I'm intrigued by musical styles I'm not familiar with and want to find out more.",
+    "Music is kind of an addiction for me - I couldn't live without it."
+    ], identifier="active_engagement", render_template=render_template)|safe}}
+
+{{render_template('multiple_options.html', 
+    questions=["I have attended __ live music events as an audience member in 2019."], 
+    identifier="active_engament_q_7", 
+    options=["0","1","2","3","4-6","7-10","11 or more"|safe])|safe}}
+
+{{render_template('multiple_options.html', 
+    questions=["I listen attentively to music for __ per day."], 
+    identifier="active_engament_q_8", 
+    options=["0-15mins","15-30mins","30-60mins","60-90mins","2hrs","2-3hrs","4hrs or more"|safe])|safe}}
+
+{{render_template('multiple_options.html', 
+    questions=["How do you identify your level of proficiency in English?"], 
+    identifier="proficiency", 
+    options=["Low"|safe, "Mid"|safe, "High"|safe, "Mother tongue"|safe])|safe}}
+
+{% endblock %}

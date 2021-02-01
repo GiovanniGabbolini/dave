@@ -1,0 +1,55 @@
+<style>
+    .word-wrap {
+        word-wrap: break-word;
+    }
+
+    hr {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    input[type=radio] {
+        transform: scale(1.4);
+    }
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+{% for j in range(questions|length) %}
+<script>
+    $(document).ready(function () {
+        $('input[type=radio][name={{identifier}}_q_{{j}}]').click(function () {
+            set_submit_button_state()
+            $.ajax('/user_trial_answer', {
+                'method': 'GET',
+                'data': {
+                    'question_id': '{{identifier}}_q_{{j}}',
+                    'answer': this.value,
+                }
+            });
+        });
+    });
+</script>
+{% endfor %}
+
+{% for j in range(questions|length) %}
+<hr />
+
+<div class="row mt-2 text-center">
+    <div class="col">
+        <h5>{{questions[j]}}</h5>
+    </div>
+</div>
+
+<div class="row mb-2 ml-0 mr-0 text-center">
+    {% for i in range(options|length) %}
+    <div class="col ml-0 mr-0 pl-0 pr-0">
+        <input class="form-check-input ml-0 mr-0 pl-0 pr-0" type="radio" name="{{identifier}}_q_{{j}}"
+            id="{{identifier}}_q_{{j}}_{{i}}" value="{{options[i]}}"><br />
+        <label class="form-check-label ml-2 mr-0 pl-0 pr-0" for="{{identifier}}_q_{{j}}">{{options[i]}}
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endfor %}

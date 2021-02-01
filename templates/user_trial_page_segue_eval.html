@@ -1,0 +1,31 @@
+{% extends "user_trial_page.html" %}
+
+{% block questions %}
+
+
+<div class="card text-center mb-3">
+    <div class="card-header">
+        First track: <b>{{first_song['track_name']}}</b> by <b>{{first_song['artist_name']}}</b>
+    </div>
+    <div class="card-body pl-0 pr-0"
+        style="background-color: #1DB954; background: radial-gradient(circle, #1DB954,#F7F7F7);">
+        <h5 class="card-title"><i>{{segue}}</i></h5>
+    </div>
+    <div class="card-footer">
+        Second track: <b>{{second_song['track_name']}}</b> by <b>{{second_song['artist_name']}}</b>
+    </div>
+</div>
+
+{{render_template('likert_scale.html',
+questions=["I like this segue",
+"This is a high quality segue",
+"I understand the connection between the two songs",
+"This segue sparked my interest in the second song",
+"This segue is funny",
+"This segue is informative",
+"This segue is creative", 
+"This segue is well written"], 
+identifier="segue_eval_{}_{}_{}".format(n_segue, idx, who), 
+render_template=render_template)|safe}}
+
+{% endblock %}

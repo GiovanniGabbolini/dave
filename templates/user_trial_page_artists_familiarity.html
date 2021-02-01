@@ -1,0 +1,23 @@
+{% extends "user_trial_page.html" %}
+
+{% block questions %}
+
+<div class="text-center">
+    <p>
+    <h5>
+        Are you familiar with the following artists?
+    </h5>
+    </p>
+</div>
+
+{{render_template('multiple_options.html', options=['Familiar', 'Not Familiar'],
+questions=[second_song_1['artist_name'],
+second_song_2['artist_name'],
+second_song_3['artist_name'],
+second_song_4['artist_name'],
+second_song_5['artist_name'],
+second_song_6['artist_name'],
+first_song_1['artist_name'],
+first_song_2['artist_name'],
+first_song_3['artist_name'],], identifier="familiarity_artists", render_template=render_template)|safe}}
+{% endblock %}

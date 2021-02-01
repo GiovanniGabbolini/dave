@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}User trial{% endblock %}
+
+{% block imports %}
+<!-- ajax -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block script %}
+<script>
+    // var done = false;
+    $(function () {
+        $("#submit").bind('click', function () {
+            // if (!done) {
+            text = $('#comments').val();
+            if (text.length > 0) {
+                $.ajax('/save_comment_survey', {
+                    'method': 'GET',
+                    'data': {
+                        'text': text,
+                    }
+                }).done(function () {
+                    window.location.reload(false);
+                    // done = true;
+                    // alert("Thanks for your comment!")
+                });
+            }
+            else {
+                window.location.reload(false);
+            }
+            // else {
+            //     alert("Type a comment before Submitting!")
+            // }
+            // }
+            // else {
+            //     alert("You've already sent a comment!")
+            // }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        <h4>Outro</h4>
+    </div>
+    <div class="card-body">
+
+        <h5>
+            <p>
+                Are there any comments you want to leave? <br>
+                For example, Did you like the idea of segues?<br>
+                <br>
+                If you have no comments, please leave the text-box below empty.
+            </p>
+        </h5>
+
+        <div class="form-group ml-5 mr-5">
+            <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+
+    </div>
+
+    <div class="card-footer">
+        <button type="button" class="class=btn btn-primary btn btn-block mt-4 mb-4" id="submit">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+{% endblock %}
