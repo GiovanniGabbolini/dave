@@ -5,3 +5,4 @@ python.log
 *.pyc
 *.png
 .ipynb_checkpoints/
+todo.txt

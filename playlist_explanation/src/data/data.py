@@ -10,7 +10,6 @@ import os
 import gensim
 import numpy as np
 from src.data.check_file import check_file
-# preprocessed_dataset_path = '~/Desktop/playlist-explanation/res/p'
 preprocessed_dataset_path = 'res/p'
 raw_dataset_path = 'res/r'
 feature_path = f"{preprocessed_dataset_path}/features"

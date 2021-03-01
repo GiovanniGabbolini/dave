@@ -13,6 +13,9 @@ def run():
     save_graph_the_chain()
     print("Saving eligible subgraphs for test2 ...")
     save_sub_graphs_that_match_the_chain_style()
+    print("Preparing segues for user trial ...")
+    save_segues()
+    save_user_trial_segue_sample()
 
 
 if __name__ == "__main__":
