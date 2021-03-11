@@ -1,22 +1,11 @@
-from playlist_explanation.src.data.the_chain import save_graph_the_chain
-from playlist_explanation.src.interestingness.save_sampled_KB_for_interestingness import save_sampled_KB_for_interestingness
-from playlist_explanation.src.run.test_2 import save_sub_graphs_that_match_the_chain_style
-from user_trial.user_trial import save_segues
-from user_trial.user_trial import save_user_trial_segue_sample
-
-
-
-def run():
-    print("Saving subgraphs for interestingness ...")
-    save_sampled_KB_for_interestingness(20000)
-    print("Saving subgraphs for the chain ...")
-    save_graph_the_chain()
-    print("Saving eligible subgraphs for test2 ...")
-    save_sub_graphs_that_match_the_chain_style()
-    print("Preparing segues for user trial ...")
-    save_segues()
-    save_user_trial_segue_sample()
-
+from playlist_explanation.src.run.test_3 import run
+from playlist_explanation.src.interestingness.interestingness_GB import best_interestingness_weights
 
 if __name__ == "__main__":
-    run()
+    track_name=input("Insert song name: ")
+    artist_name=input("Insert artist name: ")
+    d = run(best_interestingness_weights(), 'short',
+            d={"track_name": track_name, "artist_name": artist_name})
+    print(f"{track_name} by {artist_name}")
+    print(f"^ {d['segues'][0]['line']}")
+    print(f"{d['track_name_2']} by {d['artist_name_2']}")
