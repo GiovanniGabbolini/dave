@@ -10,7 +10,7 @@ Clone the repository:
 Install the dependencies:
 `pip install -r requirements.txt`
 
-Download additional data from [here](10.5281/zenodo.4618570), and place them in `playlist_explanation/res/`
+Download additional data from [here](https://doi.org/10.5281/zenodo.4618570), and place them in `playlist_explanation/res/`
 
 ## Quick start
 
